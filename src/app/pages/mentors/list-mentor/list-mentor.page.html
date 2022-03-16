@@ -1,0 +1,29 @@
+<ion-header >
+
+  <ion-toolbar color="tertiary">
+    <ion-title class="ion-text-center" >Mentores</ion-title>
+    <ion-button fill="outline" slot="end" routerLink="../add-mentor" color="light">
+      <ion-icon   name="add-circle-outline" ></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+<ion-content >
+  <div *ngFor="let mentor of mentors">
+    <ion-item [routerLink]="['../detail-mentor',mentor._id]">
+      <ion-label>
+        <h2>{{mentor.name+ " "+ mentor.last_name}}</h2>
+      
+      </ion-label>
+      <ion-avatar slot="start">
+        <img src="assets/img/logo.png" />
+      </ion-avatar>
+      <ion-button
+        (click)="deleteMentor(mentor._id);"
+        color="danger"
+        slot="end"
+        ><ion-icon name="trash-outline"></ion-icon
+      ></ion-button>
+    </ion-item>
+  </div>
+  
+</ion-content>
